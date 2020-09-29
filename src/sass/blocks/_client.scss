@@ -1,0 +1,32 @@
+.client {
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-around;
+    &__img {
+        width: 169px;
+        height: 169px;
+        img {
+            width: 100%;
+        }
+    }
+    &__text {
+        width: 650px;
+    }
+    &__title {
+        color: #0d0d0d;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    &__subtitle {
+        color: #646464;
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 10px;
+    }
+    &__review {
+        margin-top: 19px;
+        color: #0d0d0d;
+        font-size: 16px;
+        font-weight: 500;
+    }
+}

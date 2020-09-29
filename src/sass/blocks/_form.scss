@@ -1,0 +1,35 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 36px;
+    input {
+        display: block;
+        height: 50px;
+        border: none;
+        border-radius: 5px;
+        background-color: #ffffff;
+        width: 300px;
+        margin-top: 15px;
+        padding: 0 20px;
+        font-size: 14px;
+        font-weight: 300;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    &_mt25 {
+        margin-top: 25px;
+    }
+    .error {
+        border: 1px solid red;
+    }
+    label.error {
+        border: none;
+        margin-top: 10px;
+        margin-bottom: 0;
+        color: $main-color;
+    } 
+}
+
+
+
