@@ -30,7 +30,23 @@ $(document).ready(function(){
                 }
             },
         });
-    }
+
+    //Smooth scroll and pageup
+
+     $(window).scroll(function() {
+        if ($(this).scrollTop()  > 1000) {
+            $('.pageup').fadeIn();
+        } else {
+            $('.pageup').fadeOut();
+        }
+     }); 
+     
+     $("a[href^='#']").click(function(){
+        const _href = $(this).attr("href");
+        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+        return false;
+    });
+}
 
     validateForm('#consultation form');
     validateForm('.form');
@@ -39,6 +55,25 @@ $(document).ready(function(){
 
     //Mask for tel
     $("[name=phone]").mask("+7(999)-999-99-99");
+
+    //form-mail
+    $('form').submit( function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            type: 'POST', //Написал что я отправляю данные на сервер
+            url: 'mailer/smart.php', //Указал путь к серверу
+            data: $(this).serialize() //Обработал данные перед отправкой на сервер
+        }).done(function() {
+            $(this).find('input').val(''); //Очистил input-ы формы
+
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn('slow');
+
+            $('form').trigger('reset'); // Перезапустил формы
+        });
+        return false;
+    } );
 });
 
 const tabContent = document.querySelectorAll('[data-content]'),
@@ -79,13 +114,16 @@ for (let i = 0; i < tabListLink.length; i++) {
 //Modal
 const overlay = document.querySelector('.overlay'),
       modalClose = document.querySelectorAll('.modal__close'),
-      formOnPage = document.querySelectorAll('.consultation .form input');
+      formOnPage = document.querySelectorAll('.consultation .form input'),
+      modalMini = document.querySelector('#thanks');
+      console.log(modalMini);
 
       for (let i = 0; i < modalClose.length; i++) {
         modalClose[i].addEventListener('click', function(event) {
             overlay.style.display = 'none';
             consultationModal.style.display = 'none';
             orderModal.style.display = 'none';
+            modalMini.style.display = 'none';
             
             for (let j = 0; j < formOnPage.length; j++) {
                 formOnPage[j].setAttribute('required');
@@ -126,3 +164,5 @@ for (let i = 0; i < orderButton.length; i++) {
         }
     });
 }
+
+
