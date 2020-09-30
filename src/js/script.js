@@ -165,4 +165,4 @@ for (let i = 0; i < orderButton.length; i++) {
     });
 }
 
-
+new WOW().init();
