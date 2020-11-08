@@ -8,8 +8,8 @@ h1, h2, h3, h4 {
     margin-bottom: 0;
 }
 
-.container {
-    max-width: 950px;
+.container {/* 
+    max-width: 950px; */
     margin: 0 auto;
     position: relative;
     padding: 0;
@@ -33,3 +33,4 @@ h1, h2, h3, h4 {
 @import'blocks/modal';
 @import'blocks/pageup';
 @import'blocks/footer-map';
+@import 'media';
