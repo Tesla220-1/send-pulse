@@ -116,7 +116,6 @@ const overlay = document.querySelector('.overlay'),
       modalClose = document.querySelectorAll('.modal__close'),
       formOnPage = document.querySelectorAll('.consultation .form input'),
       modalMini = document.querySelector('#thanks');
-      console.log(modalMini);
 
       for (let i = 0; i < modalClose.length; i++) {
         modalClose[i].addEventListener('click', function(event) {
@@ -126,7 +125,7 @@ const overlay = document.querySelector('.overlay'),
             modalMini.style.display = 'none';
             
             for (let j = 0; j < formOnPage.length; j++) {
-                formOnPage[j].setAttribute('required');
+                formOnPage[j].setAttribute('required', 'required');
             }
         });
     }  
@@ -141,7 +140,7 @@ for (let i = 0; i < consultationButton.length; i++) {
         consultationModal.style.display = 'block';
 
         for (let j = 0; j < formOnPage.length; j++) {
-            formOnPage[j].removeAttribute('required');
+            formOnPage[j].removeAttribute('required', 'required');
         }
     });
 }
@@ -160,7 +159,7 @@ for (let i = 0; i < orderButton.length; i++) {
         orderModalSubtitle.textContent = orderTitle[i].textContent;
 
         for (let j = 0; j < formOnPage.length; j++) {
-            formOnPage[j].removeAttribute('required');
+            formOnPage[j].removeAttribute('required', 'required');
         }
     });
 }
