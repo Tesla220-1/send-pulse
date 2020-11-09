@@ -96,14 +96,8 @@
 
     .consultation {
         &__header {
-            text-align: center;
             font-size: 22px;
-        }
-        &__text {
-            text-align: center;
-        }
-        .form {
-            align-items: center;
+            line-height: 39px;
         }
     }
 
@@ -211,7 +205,7 @@
 
     .consultation {
         &__header {
-            font-size: 20px;
+            font-size: 19px;
             line-height: 30px;
             padding-left: 10px;
             padding-right: 10px;
@@ -222,8 +216,7 @@
             font-size: 19px;
         }
         .form {
-            padding-left: 15px;
-            padding-right: 15px;
+            padding-left: 8px;
         }
     }
 
