@@ -48,12 +48,12 @@
     }
     &__content {
         display: none;
-        margin-top: 45px;
+        margin: 45px -20px 0;
         &_active {
             display: block;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: center;
         }
     }
 }

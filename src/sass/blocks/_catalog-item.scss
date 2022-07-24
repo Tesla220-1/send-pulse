@@ -1,11 +1,11 @@
 .catalog-item {
-    width: 300px;
+    width: calc(33% - 40px);
     min-height: 440px;
     border: 2px solid #e8e8e8;
     background-color: #ffffff;
     padding: 20px 20px 26px;
     overflow: hidden;
-    margin-top: 40px;
+    margin: 40px 20px 0;
     &__img {
         display: block;
         margin: 0 auto;

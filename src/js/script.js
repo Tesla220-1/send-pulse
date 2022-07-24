@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('.carousel__inner').slick({
-        adaptiveHeight: true,
+        adaptiveHeight: false,
         prevArrow: '<button type="button" class="slick-prev"><img src="icons/left-arrow.svg"></button>',
         nextArrow: '<button type="button" class="slick-next"><img src="icons/right-arrow.svg"></button>'
     });
@@ -30,31 +30,39 @@ $(document).ready(function(){
                 }
             },
         });
+    }
 
     //Smooth scroll and pageup
 
-     $(window).scroll(function() {
+    const anchors = document.querySelectorAll('a[href*="#"]')
+
+    for (let anchor of anchors) {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault()
+            
+            const blockID = anchor.getAttribute('href').substr(1)
+            
+            document.getElementById(blockID).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+            })
+        })
+    }
+
+    $(window).scroll(function() {
         if ($(this).scrollTop()  > 1000) {
             $('.pageup').fadeIn();
         } else {
             $('.pageup').fadeOut();
         }
-     }); 
-     
-     $("a[href=#up]").click(function(){
-        const _href = $(this).attr("href");
-        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
-        return false;
     });
-}
+
+    //Smooth scroll and pageup end
 
     validateForm('#consultation form');
     validateForm('.form');
     validateForm('#consultation-form');
     validateForm('#order form');
-
-    //Mask for tel
-    $("[name=phone]").mask("+7(999)-999-99-99");
 
     //form-mail
     $('form').submit( function(e) {
@@ -62,7 +70,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: 'POST', //Написал что я отправляю данные на сервер
-            url: 'mailer/smart.php', //Указал путь к серверу
+            url: '../mailer/smart.php', //Указал путь к серверу
             data: $(this).serialize() //Обработал данные перед отправкой на сервер
         }).done(function() {
             $(this).find('input').val(''); //Очистил input-ы формы
@@ -80,16 +88,6 @@ const tabContent = document.querySelectorAll('[data-content]'),
       tabContentLink = document.querySelectorAll('[data-content-link]'),
       tabList = document.querySelectorAll('[data-list]'),
       tabListLink = document.querySelectorAll('[data-list-link]');
-
-console.log(tabContent); 
-console.log(tabContentLink); 
-console.log(tabList); 
-console.log(tabListLink); 
-
-console.log(tabContent.length); 
-console.log(tabContentLink.length); 
-console.log(tabList.length); 
-console.log(tabListLink.length); 
 
 for (let i = 0; i < tabContentLink.length; i++) {
     tabContentLink[i].addEventListener('click', function(event){
