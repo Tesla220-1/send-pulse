@@ -57,6 +57,10 @@
         margin-top: 80px;
     }
 
+    .catalog-item {
+        width: calc(45% - 40px);
+    }
+
     .reviews {
         .client {
             padding-top: 60px;
@@ -106,9 +110,26 @@
             font-size: 14px;
             width: 145px;
         }
-        &-item {
-            margin-top: 20px;
+    }
+
+    .catalog-item {
+        width: calc(50% - 40px);
+        margin: 20px 10px 0;
+        &__footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+        &__old-price {
+            text-align: center;
+        }
+        &__new-price {
+            text-align: center;
+        }
+    }
+
+    .button_tab {
+        margin-top: 15px;
     }
 
     .reviews {
@@ -239,6 +260,10 @@
         }
     }
 
+    .catalog-item {
+        width: calc(80% - 20px);
+    }
+
     .reviews {
         &__title {
             font-size: 25px;
@@ -253,5 +278,35 @@
     .pageup {
         right: 10px;
         bottom: 10px;
+    }
+
+    .modal {
+        padding: 55px 20px 40px;
+        .form {
+            input {
+                width: 100%;
+            }
+        }
+        &__close {
+            right: 10px;
+            top: 10px;
+        }
+
+        .button_form {
+            font-size: 14px;
+            width: 100%;
+        }
+    }
+
+    .form {
+        label.error {
+            font-size: 12px;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .catalog-item {
+        width: calc(100% - 20px);
     }
 }

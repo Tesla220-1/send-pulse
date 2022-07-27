@@ -17,6 +17,7 @@
     background-color: #f2f2f2;
     text-align: center;
     padding: 38px 40px 40px;
+    max-width: calc(100% - 40px);
     &__close {
         width: 30px;
         height: 30px;
